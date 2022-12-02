@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.junh.board.question.Question;
+import com.junh.board.user.SiteUser;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,7 +35,11 @@ public class Answer {
     private String content;
 
     private LocalDateTime createDate;
+    private LocalDateTime modifyDate;
 
     @ManyToOne
     private Question question;
+
+    @ManyToOne
+    private SiteUser author;
 }

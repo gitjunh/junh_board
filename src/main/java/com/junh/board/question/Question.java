@@ -12,8 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.junh.board.answer.Answer;
+import com.junh.board.user.SiteUser;
 
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,7 +42,11 @@ public class Question {
     private String content;
 
     private LocalDateTime createDate;
+    private LocalDateTime modifyDate;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
     private List<Answer> answerList;
+
+    @ManyToOne
+    private SiteUser author;
 }
